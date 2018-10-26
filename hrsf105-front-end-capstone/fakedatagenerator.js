@@ -1,4 +1,5 @@
 var faker = require('faker');
+var Comment = require ('../database.index.js');
 
 var fakeCommentData = [];
 
@@ -78,4 +79,11 @@ for (var i = 0; i < 100; i++) {
     });
 }
 
-module.exports.fakeCommentData = fakeCommentData;
+Comment.insertMany(fakedatagenerator.fakeCommentData, function(err, comments) {
+  if (err) {
+    console.log('There was an error seeding your database');
+  } else {
+    console.log('Data successfully saved!!');
+  }
+})
+
