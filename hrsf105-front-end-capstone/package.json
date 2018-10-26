@@ -7,12 +7,31 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "dev": "webpack --watch",
+    "start": "nodemon server/server.js",
+    "seedDB": "node fakedatagenerator.js",
+    "test": "jest"
+  },
   "dependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.7.0",
+    "express": "^4.16.4",
     "faker": "^4.1.0",
-    "mongoose": "^5.3.6"
+    "mongoose": "^5.3.6",
+    "nodemon": "^1.18.4",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev": "^1.1.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^23.6.0"
   }
 }
