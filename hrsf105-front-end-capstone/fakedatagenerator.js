@@ -1,5 +1,7 @@
 var faker = require('faker');
-var Comment = require ('../database.index.js');
+var Comment = require ('./database/index.js').Comment;
+var mongoose = require('mongoose');
+
 
 var fakeCommentData = [];
 
@@ -57,9 +59,9 @@ function generateReplies() {
   for (var i = 0; i < getRandomInt(0, 4); i++) {
     replies.push({
       author: faker.name.findName(),
-      authorIsCreator : isCreator(),
-      profilePicture : getRandomProfilePic(),
-      createdAt : faker.data.recent(),
+      authorIsCreator: isCreator(),
+      profilePicture: getRandomProfilePic(),
+      createdAt: faker.date.recent(),
       body : randomBodyLength()
     });
   }
@@ -73,17 +75,17 @@ for (var i = 0; i < 100; i++) {
       author: faker.name.findName(),
       authorIsCreator: isCreator(),
       profilePicture: getRandomProfilePic(),
-      createdAt: faker.data.recent(),
+      createdAt: faker.date.recent(),
       body: randomBodyLength(),
       replies: generateReplies()
     });
 }
 
-Comment.insertMany(fakedatagenerator.fakeCommentData, function(err, comments) {
+Comment.insertMany(fakeCommentData, function(err, comments) {
   if (err) {
     console.log('There was an error seeding your database');
   } else {
     console.log('Data successfully saved!!');
   }
-})
+});
 
