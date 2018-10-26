@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var fakedatagenerator = require('../fakedatagenerator.js');
 mongoose.connect('mongodb://localhost/comments');
 
-//define schema and make reference to it 
 var commentSchema = new mongoose.Schema({
   id: Number,
   author: String,
@@ -13,7 +12,6 @@ var commentSchema = new mongoose.Schema({
   replies: Array
 });
 
-//compile schema into model
 var Comment = mongoose.model('Comment', commentSchema);
 
 Comment.insertMany(fakedatagenerator.fakeCommentData, function(err, comments) {
@@ -22,4 +20,4 @@ Comment.insertMany(fakedatagenerator.fakeCommentData, function(err, comments) {
   } else {
     console.log('Data successfully saved!!');
   }
-})
+});
