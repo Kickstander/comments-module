@@ -89,3 +89,4 @@ Comment.insertMany(fakeCommentData, function(err, comments) {
   }
 });
 
+module.exports.generateReplies = generateReplies;
