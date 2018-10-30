@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import List from './List.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -24,6 +25,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Hello World!</h1>
+        <List list={this.state.commentList} />
       </div>
     );
   }
