@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/comments', (req, res) => {
-  console.log('response from server side get request: ', res);
+  console.log('hello from inside app.get');
   res.status(200).send(JSON.stringify(res));
 });
 
