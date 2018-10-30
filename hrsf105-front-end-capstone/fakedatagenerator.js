@@ -1,15 +1,15 @@
-var faker = require('faker');
-var Comment = require ('./database/index.js').Comment;
-var mongoose = require('mongoose');
+const faker = require('faker');
+
+const Comment = require('./database/index.js')[Comment]; // eslint-disable-line no-use-before-define
 
 
-var fakeCommentData = [];
+const fakeCommentData = [];
 
 function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-  }
+  const minVal = Math.ceil(min);
+  const maxVal = Math.floor(max);
+  return Math.floor(Math.random() * (maxVal - minVal)) + minVal;
+}
 
 function isCreator() {
   if (getRandomInt(1, 11) > 9) {
@@ -19,7 +19,7 @@ function isCreator() {
 }
 
 function getRandomProfilePic() {
-  var profilePics = [
+  const profilePics = [
     'https://images.pexels.com/photos/1310522/pexels-photo-1310522.jpeg?auto=compress&cs=tinysrgb&h=350',
     'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=350',
     'https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&h=350',
@@ -38,55 +38,51 @@ function getRandomProfilePic() {
     'https://images.pexels.com/photos/975680/pexels-photo-975680.jpeg?auto=compress&cs=tinysrgb&h=350',
     'https://images.pexels.com/photos/954202/pexels-photo-954202.jpeg?auto=compress&cs=tinysrgb&h=350',
     'https://images.pexels.com/photos/40997/mona-lisa-leonardo-da-vinci-la-gioconda-oil-painting-40997.jpeg?auto=compress&cs=tinysrgb&h=350',
-    'https://images.pexels.com/photos/90362/pexels-photo-90362.jpeg?auto=compress&cs=tinysrgb&h=350'
+    'https://images.pexels.com/photos/90362/pexels-photo-90362.jpeg?auto=compress&cs=tinysrgb&h=350',
   ];
-  
-  return profilePics[getRandomInt(0, profilePics.length)];
 
+  return profilePics[getRandomInt(0, profilePics.length)];
 }
 
 function randomBodyLength() {
   if (getRandomInt(1, 11) > 6) {
     return faker.lorem.paragraph();
-  } else {
-    return faker.lorem.paragraphs();
   }
+  return faker.lorem.paragraphs();
 }
 
 function generateReplies() {
-  var replies = [];
-  
-  for (var i = 0; i < getRandomInt(0, 4); i++) {
+  const replies = [];
+  for (let i = 0; i < getRandomInt(0, 4); i += 1) {
     replies.push({
       author: faker.name.findName(),
       authorIsCreator: isCreator(),
       profilePicture: getRandomProfilePic(),
       createdAt: faker.date.recent(),
-      body : randomBodyLength()
+      body: randomBodyLength(),
     });
   }
 
   return replies;
 }
 
-for (var i = 0; i < 100; i++) {
+for (let i = 0; i < 100; i += 1) {
   fakeCommentData.push({
-      id: i,
-      author: faker.name.findName(),
-      authorIsCreator: isCreator(),
-      profilePicture: getRandomProfilePic(),
-      createdAt: faker.date.recent(),
-      body: randomBodyLength(),
-      replies: generateReplies()
-    });
+    id: i,
+    author: faker.name.findName(),
+    authorIsCreator: isCreator(),
+    profilePicture: getRandomProfilePic(),
+    createdAt: faker.date.recent(),
+    body: randomBodyLength(),
+    replies: generateReplies(),
+  });
 }
 
-Comment.insertMany(fakeCommentData, function(err, comments) {
+Comment.insertMany(fakeCommentData, (err) => {
   if (err) {
     console.log('There was an error seeding your database');
-  } else {
-    console.log('Data successfully saved!!');
   }
+  console.log('Data successfully saved!!');
 });
 
 module.exports.generateReplies = generateReplies;
