@@ -1,4 +1,6 @@
 const express = require('express');
+const databaseExports = require('../database/index.js');
+// console.log('allComments from db', databaseExports.allComments.schema.tree);
 
 const bodyParser = require('body-parser');
 
@@ -13,8 +15,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/comments', (req, res) => {
-  console.log('hello from inside app.get');
-  res.status(200).send(JSON.stringify(res));
+  databaseExports.Comment.find({}, (err, results) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log('results from inside server: ', results);
+    res.status(200).send(JSON.stringify(results));
+  });
 });
 
 app.listen(port, () => {
