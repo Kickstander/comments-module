@@ -1,8 +1,6 @@
 const express = require('express');
-const databaseExports = require('../database/index.js');
-// console.log('allComments from db', databaseExports.allComments.schema.tree);
-
 const bodyParser = require('body-parser');
+const databaseExports = require('../database/index.js');
 
 const app = express();
 
@@ -19,7 +17,6 @@ app.get('/comments', (req, res) => {
     if (err) {
       console.log(err);
     }
-    console.log('results from inside server: ', results);
     res.status(200).send(JSON.stringify(results));
   });
 });

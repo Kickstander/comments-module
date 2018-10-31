@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import List from './List.jsx';
+import Post from './Post.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -12,17 +13,16 @@ class App extends React.Component {
 
   componentDidMount() {
     $.get('/comments', (data) => {
-        console.log('ajax data: ', JSON.parse(data));
-        this.setState({
-          commentList: JSON.parse(data),
-        });
+      this.setState({
+        commentList: JSON.parse(data),
       });
+    });
   }
 
   render() {
     return (
       <div>
-        <h1>Hello World!</h1>
+        <Post />
         <List list={this.state.commentList} />
       </div>
     );
