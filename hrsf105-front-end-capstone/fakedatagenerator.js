@@ -1,6 +1,6 @@
 const faker = require('faker');
 
-const Comment = require('./database/index.js')[Comment]; // eslint-disable-line no-use-before-define
+const Comment = require('./database/index.js').Comment; // eslint-disable-line no-use-before-define
 
 
 const fakeCommentData = [];
@@ -84,5 +84,3 @@ Comment.insertMany(fakeCommentData, (err) => {
   }
   console.log('Data successfully saved!!');
 });
-
-module.exports.generateReplies = generateReplies;

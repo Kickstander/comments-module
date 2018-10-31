@@ -11,14 +11,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      method: 'GET',
-      success: (data) => {
+    $.get('/comments', (data) => {
+        console.log('ajax data: ', JSON.parse(data));
         this.setState({
           commentList: JSON.parse(data),
         });
-      },
-    });
+      });
   }
 
   render() {

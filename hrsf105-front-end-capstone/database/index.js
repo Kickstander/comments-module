@@ -14,4 +14,15 @@ const commentSchema = new mongoose.Schema({
 
 const Comment = mongoose.model('Comment', commentSchema);
 
+let allComments = [];
+
+Comment.find({}, (err, results) => {
+  if (err) {
+    console.log(err);
+  }
+  allComments = results;
+  console.log('allComments from database: ', allComments);
+});
+
 module.exports.Comment = Comment;
+module.exports.allComments = allComments;
