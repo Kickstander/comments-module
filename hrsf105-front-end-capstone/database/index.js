@@ -21,7 +21,6 @@ Comment.find({}, (err, results) => {
     console.log(err);
   }
   allComments = results;
-  console.log('allComments from database: ', allComments);
 });
 
 module.exports.Comment = Comment;
