@@ -1,21 +1,23 @@
 import React from 'react';
+import moment from 'moment';
 
 const Comment = (props) => {
+  let authorSpan;
   if (props.comment.authorIsCreator) {
-    const authorSpan = 
-    <span>
-      {props.comment.author}
-      <img className="creatorimage" src="../dist/CreatorLogo.png"></img>
-    </span>;
-    //display Creator logo after author name
+    authorSpan = (
+      <span>
+        {props.comment.author}
+        <img className="creatorimage" src="../dist/CreatorLogo.png" alt="Creator Label"></img>
+      </span>
+    );
   } else {
-    //display only author name
-    const authorSpan = <span>{props.comment.author}</span>;
+    // display only author name
+    authorSpan = <span>{props.comment.author}</span>;
   }
   return (
-    <div class="commentBlock">
+    <div className="commentBlock">
       <p>{authorSpan}</p>
-      <p>{props.comment.createdAt}</p>
+      <p>{moment(props.comment.createdAt).fromNow()}</p>
       <p>{props.comment.body}</p>
     </div>
   );

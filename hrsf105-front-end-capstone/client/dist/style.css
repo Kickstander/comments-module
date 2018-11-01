@@ -1,7 +1,12 @@
+body {
+  font-family: 'Barlow', sans-serif;
+}
+
 .commentBlock {
-	border: 2px solid lightgrey;
+	border: 1px solid #F7F7F6;
 }
 
 #loginsection {
-	border: 2px solid lightgrey;
+	background-color: #F7F7F6;
 }
+
