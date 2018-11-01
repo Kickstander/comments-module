@@ -2,23 +2,31 @@ import React from 'react';
 import moment from 'moment';
 
 const Comment = (props) => {
-  let authorSpan;
-  if (props.comment.authorIsCreator) {
-    authorSpan = (
-      <span>
-        {props.comment.author}
-        <img className="creatorimage" src="../dist/CreatorLogo.png" alt="Creator Label"></img>
-      </span>
-    );
-  } else {
-    // display only author name
-    authorSpan = <span>{props.comment.author}</span>;
+  const { comment } = props;
+  const profilePictureURL = comment.profilePicture;
+  const timeAgo = moment(comment.createdAt).fromNow();
+  let creatorLogo;
+  if (comment.authorIsCreator) {
+    creatorLogo = <img src="https://i.postimg.cc/Pr8qdjjH/Creator-Logo.png" alt="creatorlogo" className="creatorLogo" />;
   }
   return (
     <div className="commentBlock">
-      <p className="authorName">{authorSpan}</p>
-      <p className="timeago">about&nbsp;{moment(props.comment.createdAt).fromNow()}</p>
-      <p className="commentBody">{props.comment.body}</p>
+      <div className="authorPicAndTime">
+        <span>
+          <img className="profilepicture" src={profilePictureURL} alt="profilepic" />
+        </span>
+        <span>
+          <p className="authorName">{comment.author}</p>
+          <p className="timeago">
+            about&nbsp;
+            {timeAgo}
+          </p>
+        </span>
+        <span>
+          {creatorLogo}
+        </span>
+      </div>
+      <p className="commentBody">{comment.body}</p>
     </div>
   );
 };

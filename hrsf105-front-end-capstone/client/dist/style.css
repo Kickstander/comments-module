@@ -1,34 +1,63 @@
 body {
   font-family: 'Barlow', sans-serif;
   font-size: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.backgroundDiv {
+	background-color: #FBFBFA;
+	padding: 10px;
 }
 
 .commentBlock {
 	border: 1px solid #E8E8E8;
-	margin: 5px;
+	margin: 10px;
+	background-color: white;
 }
 
 #loginsection {
 	background-color: #F7F7F6;
 	height: 24px;
-	padding: 12px;
-	vertical-align: baseline;
+	padding: 16px 12px 11px 12px;
+	display: flex;
+	justify-content: center;
 }
 
 .timeago {
 	color: #D6D8D8;
-	margin: 5px 0px 0px 20px;
-	font-size: 14px;
+	margin: 3px 0px 0px 8px;
+	font-size: 85%;
 }
 
 .authorName {
-	margin: 20px 0px 0px 20px;
+	margin: 8px 3px 0px 8px;
 }
 
 .commentBody {
-	margin: 10px 0px 20px 20px;
+	margin: 10px 0px 20px 0px;
+	padding-left: 8px;
 }
 
-.creatorimage {
-	height: 20px;
+.creatorLogo {
+	height: 1.2em;
+	margin-top: 8px;
+	margin-left: 5px;
+}
+
+.profilepicture {
+	height: 3em;
+}
+
+.authorPicAndTime {
+	margin-top: 20px;
+	margin-left: 20px;
+	display: inline-flex;
+}
+
+.commentBody {
+	margin-left: 20px;
+	margin-right: 20px;
+  line-height: 1.6em;
 }
