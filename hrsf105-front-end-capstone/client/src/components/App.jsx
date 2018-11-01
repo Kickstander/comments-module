@@ -3,7 +3,6 @@ import $ from 'jquery';
 import List from './List';
 import Post from './Post';
 
-
 class App extends React.Component {
   constructor() {
     super();

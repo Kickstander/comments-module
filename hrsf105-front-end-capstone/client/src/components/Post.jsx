@@ -4,7 +4,7 @@ const Post = () => {
   const login = <strong>Log in.</strong>;
   return (
     <div>
-      <p>
+      <p id="loginsection">
         Only backers can post comments.&nbsp;
         {login}
       </p>
