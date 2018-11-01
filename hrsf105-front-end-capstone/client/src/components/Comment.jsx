@@ -16,9 +16,9 @@ const Comment = (props) => {
   }
   return (
     <div className="commentBlock">
-      <p>{authorSpan}</p>
-      <p>{moment(props.comment.createdAt).fromNow()}</p>
-      <p>{props.comment.body}</p>
+      <p className="authorName">{authorSpan}</p>
+      <p className="timeago">about&nbsp;{moment(props.comment.createdAt).fromNow()}</p>
+      <p className="commentBody">{props.comment.body}</p>
     </div>
   );
 };
