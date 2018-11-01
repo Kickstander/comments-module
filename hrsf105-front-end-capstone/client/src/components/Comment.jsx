@@ -6,27 +6,32 @@ const Comment = (props) => {
   const profilePictureURL = comment.profilePicture;
   const timeAgo = moment(comment.createdAt).fromNow();
   let creatorLogo;
+  let greenBarSpan;
   if (comment.authorIsCreator) {
     creatorLogo = <img src="https://i.postimg.cc/Pr8qdjjH/Creator-Logo.png" alt="creatorlogo" className="creatorLogo" />;
+    greenBarSpan = <span className="greenbar"></span>;
   }
   return (
     <div className="commentBlock">
-      <div className="authorPicAndTime">
-        <span>
-          <img className="profilepicture" src={profilePictureURL} alt="profilepic" />
-        </span>
-        <span>
-          <p className="authorName">{comment.author}</p>
-          <p className="timeago">
-            about&nbsp;
-            {timeAgo}
-          </p>
-        </span>
-        <span>
-          {creatorLogo}
-        </span>
-      </div>
-      <p className="commentBody">{comment.body}</p>
+      {greenBarSpan}
+      <span>
+        <div className="authorPicAndTime">
+          <span>
+            <img className="profilepicture" src={profilePictureURL} alt="profilepic" />
+          </span>
+          <span>
+            <p className="authorName">{comment.author}</p>
+            <p className="timeago">
+              about&nbsp;
+              {timeAgo}
+            </p>
+          </span>
+          <span>
+            {creatorLogo}
+          </span>
+        </div>
+        <p className="commentBody">{comment.body}</p>
+      </span>
     </div>
   );
 };
