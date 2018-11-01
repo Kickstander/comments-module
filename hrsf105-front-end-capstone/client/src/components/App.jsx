@@ -12,7 +12,6 @@ class App extends React.Component {
 
   componentDidMount() {
     $.get('/comments', (data) => {
-        console.log('ajax data: ', JSON.parse(data));
         this.setState({
           commentList: JSON.parse(data),
         });
