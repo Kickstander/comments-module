@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import List from './List.jsx';
+import List from './List';
 
 class App extends React.Component {
   constructor() {
