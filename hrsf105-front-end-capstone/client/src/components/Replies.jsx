@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../../dist/style.css';
 import Reply from './Reply';
 
 const Replies = (props) => {

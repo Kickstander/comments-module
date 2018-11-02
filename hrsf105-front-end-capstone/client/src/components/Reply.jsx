@@ -8,19 +8,19 @@ const Reply = (props) => {
   const timeAgo = moment(reply.createdAt).fromNow();
   let creatorLogo;
   let greenBarSpan;
-  let indentationSpan = <span className={styles.indentationSpan} />;
+  const indentationSpan = <span className={styles.indentationSpan} />;
   if (reply.authorIsCreator) {
     creatorLogo = <img src="https://i.postimg.cc/Pr8qdjjH/Creator-Logo.png" alt="creatorlogo" className={styles.creatorLogo} />;
     greenBarSpan = <span className={styles.greenbar} />;
   }
   return (
     <div className={styles.commentBlock}>
-    	{indentationSpan}
+      {indentationSpan}
       {greenBarSpan}
       <span>
         <div className={styles.authorPicAndTime}>
           <span>
-            <img className={styles.profilepicture} src={profilePictureURL} alt="profilepic" />
+            <img className={styles.profilePicture} src={profilePictureURL} alt="profilepic" />
           </span>
           <span>
             <p className={styles.authorName}>{reply.author}</p>
