@@ -1,11 +1,38 @@
 import React from 'react';
+import moment from 'moment';
+import styles from '../../dist/style.css';
 
-const Comment = props => {
+const Comment = (props) => {
+  const { comment } = props;
+  const profilePictureURL = comment.profilePicture;
+  const timeAgo = moment(comment.createdAt).fromNow();
+  let creatorLogo;
+  let greenBarSpan;
+  if (comment.authorIsCreator) {
+    creatorLogo = <img src="https://i.postimg.cc/Pr8qdjjH/Creator-Logo.png" alt="creatorlogo" className={styles.creatorLogo} />;
+    greenBarSpan = <span className={styles.greenbar} />;
+  }
   return (
-    <div>
-      <p>{props.comment.author}</p>
-      <p>{props.comment.createdAt}</p>
-      <p>{props.comment.body}</p>
+    <div className={styles.commentBlock}>
+      {greenBarSpan}
+      <span>
+        <div className={styles.authorPicAndTime}>
+          <span>
+            <img className={styles.profilepicture} src={profilePictureURL} alt="profilepic" />
+          </span>
+          <span>
+            <p className={styles.authorName}>{comment.author}</p>
+            <p className={styles.timeago}>
+              about&nbsp;
+              {timeAgo}
+            </p>
+          </span>
+          <span>
+            {creatorLogo}
+          </span>
+        </div>
+        <p className={styles.commentBody}>{comment.body}</p>
+      </span>
     </div>
   );
 };
