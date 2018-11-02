@@ -1,19 +1,19 @@
-const dataGenFunctions = require('../fakedatagenerator.js');
 import React from 'react';
-//also need to import shallow function
+import { shallow } from 'enzyme';
 
-test('replies is array', () => {
-  expect(Array.isArray(dataGenFunctions.generateReplies())).toBe(true);
-});
+// test('replies is array', () => {
+//   expect(Array.isArray(dataGenFunctions.generateReplies())).toBe(true);
+// });
 
 // test that comments render to the page
-test('');
+// test('');
 
 // test that comments show author name
 
 // test that comments show creator logo if author is creator
 
 // test that green line shows up if author is creator
+// do this by using classNames
 
 // test that body text is displayed
 
@@ -26,3 +26,5 @@ test('');
 // test that html renders
 
 // test that conditional rendering works correctly
+
+// tests should make sure the user sees the things they should and also that they don't see things they shouldn't
