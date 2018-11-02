@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import styles from '../../dist/style.css';
+import Replies from './Replies';
 
 const Comment = (props) => {
   const { comment } = props;
@@ -13,26 +14,29 @@ const Comment = (props) => {
     greenBarSpan = <span className={styles.greenbar} />;
   }
   return (
-    <div className={styles.commentBlock}>
-      {greenBarSpan}
-      <span>
-        <div className={styles.authorPicAndTime}>
-          <span>
-            <img className={styles.profilepicture} src={profilePictureURL} alt="profilepic" />
-          </span>
-          <span>
-            <p className={styles.authorName}>{comment.author}</p>
-            <p className={styles.timeago}>
-              about&nbsp;
-              {timeAgo}
-            </p>
-          </span>
-          <span>
-            {creatorLogo}
-          </span>
-        </div>
-        <p className={styles.commentBody}>{comment.body}</p>
-      </span>
+    <div>
+      <div className={styles.commentBlock}>
+        {greenBarSpan}
+        <span>
+          <div className={styles.authorPicAndTime}>
+            <span>
+              <img className={styles.profilepicture} src={profilePictureURL} alt="profilepic" />
+            </span>
+            <span>
+              <p className={styles.authorName}>{comment.author}</p>
+              <p className={styles.timeago}>
+                about&nbsp;
+                {timeAgo}
+              </p>
+            </span>
+            <span>
+              {creatorLogo}
+            </span>
+          </div>
+          <p className={styles.commentBody}>{comment.body}</p>
+        </span>
+      </div>
+      <Replies replies={comment.replies} />
     </div>
   );
 };

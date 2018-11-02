@@ -65,3 +65,9 @@ body {
 	background-color: white;
 	display: table;
 }
+
+.indentationSpan {
+	display: table-cell;
+	background-color: #FBFBFA;
+	width: 33px;
+}
