@@ -19,8 +19,8 @@ function isCreator(percentLikely) {
 }
 
 function getRandomProfilePic() {
-  const profilePics = [
-    'https://i.postimg.cc/3JMZ83vC/Screen-Shot-2018-11-01-at-10-56-59-AM.png',
+  const defaultProfilePic = 'https://i.postimg.cc/3JMZ83vC/Screen-Shot-2018-11-01-at-10-56-59-AM.png';
+  const otherPics = [
     'https://i.postimg.cc/dV6RjdS4/Screen-Shot-2018-11-01-at-10-57-32-AM.png',
     'https://i.postimg.cc/8CnhqGGv/Screen-Shot-2018-11-01-at-10-57-47-AM.png',
     'https://i.postimg.cc/W3B017hb/Screen-Shot-2018-11-01-at-10-57-57-AM.png',
@@ -34,8 +34,12 @@ function getRandomProfilePic() {
     'https://i.postimg.cc/mZVbRgqK/Screen-Shot-2018-11-01-at-11-04-09-AM.png',
     'https://i.postimg.cc/NFGBT3yN/Screen-Shot-2018-11-01-at-11-04-20-AM.png',
   ];
-
-  return profilePics[getRandomInt(0, profilePics.length)];
+  const intRange = otherPics.length * 2;
+  const randomInt = getRandomInt(0, intRange);
+  if (randomInt >= otherPics.length) {
+    return defaultProfilePic;
+  }
+  return otherPics[randomInt];
 }
 
 function randomBodyLength() {
