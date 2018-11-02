@@ -7,17 +7,18 @@ body {
 }
 
 .backgroundDiv {
+	margin: 20px;
 	background-color: #FBFBFA;
 	padding: 10px;
+	border: 1px solid #E8E8E8;
 }
 
 
 .loginsection {
 	background-color: #F7F7F6;
-	height: 24px;
-	padding: 16px 12px 11px 12px;
 	display: flex;
 	justify-content: center;
+	margin: 20px;
 }
 
 .timeago {
