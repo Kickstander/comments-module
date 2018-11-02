@@ -37,7 +37,7 @@ body {
 	margin-left: 5px;
 }
 
-.profilepicture {
+.profilePicture {
 	height: 3em;
 }
 
@@ -64,4 +64,10 @@ body {
 	margin: 10px;
 	background-color: white;
 	display: table;
+}
+
+.indentationSpan {
+	display: table-cell;
+	background-color: #FBFBFA;
+	width: 33px;
 }

@@ -50,7 +50,7 @@ function generateReplies() {
   for (let i = 0; i < getRandomInt(0, 4); i += 1) {
     replies.push({
       author: faker.name.findName(),
-      authorIsCreator: isCreator(90),
+      authorIsCreator: isCreator(50),
       profilePicture: getRandomProfilePic(),
       createdAt: faker.date.recent(),
       body: randomBodyLength(),
@@ -64,7 +64,7 @@ for (let i = 0; i < 100; i += 1) {
   fakeCommentData.push({
     id: i,
     author: faker.name.findName(),
-    authorIsCreator: isCreator(10),
+    authorIsCreator: isCreator(1),
     profilePicture: getRandomProfilePic(),
     createdAt: faker.date.recent(),
     body: randomBodyLength(),
