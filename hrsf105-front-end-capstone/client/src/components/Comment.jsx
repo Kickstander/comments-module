@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import styles from '../../dist/style.css';
 
 const Comment = (props) => {
   const { comment } = props;
@@ -8,20 +9,20 @@ const Comment = (props) => {
   let creatorLogo;
   let greenBarSpan;
   if (comment.authorIsCreator) {
-    creatorLogo = <img src="https://i.postimg.cc/Pr8qdjjH/Creator-Logo.png" alt="creatorlogo" className="creatorLogo" />;
-    greenBarSpan = <span className="greenbar"></span>;
+    creatorLogo = <img src="https://i.postimg.cc/Pr8qdjjH/Creator-Logo.png" alt="creatorlogo" className={styles.creatorLogo} />;
+    greenBarSpan = <span className={styles.greenbar} />;
   }
   return (
-    <div className="commentBlock">
+    <div className={styles.commentBlock}>
       {greenBarSpan}
       <span>
-        <div className="authorPicAndTime">
+        <div className={styles.authorPicAndTime}>
           <span>
-            <img className="profilepicture" src={profilePictureURL} alt="profilepic" />
+            <img className={styles.profilepicture} src={profilePictureURL} alt="profilepic" />
           </span>
           <span>
-            <p className="authorName">{comment.author}</p>
-            <p className="timeago">
+            <p className={styles.authorName}>{comment.author}</p>
+            <p className={styles.timeago}>
               about&nbsp;
               {timeAgo}
             </p>
@@ -30,7 +31,7 @@ const Comment = (props) => {
             {creatorLogo}
           </span>
         </div>
-        <p className="commentBody">{comment.body}</p>
+        <p className={styles.commentBody}>{comment.body}</p>
       </span>
     </div>
   );

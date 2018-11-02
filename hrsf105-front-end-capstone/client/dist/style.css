@@ -12,7 +12,7 @@ body {
 }
 
 
-#loginsection {
+.loginsection {
 	background-color: #F7F7F6;
 	height: 24px;
 	padding: 16px 12px 11px 12px;
