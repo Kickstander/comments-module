@@ -4,7 +4,9 @@ import { shallow } from 'enzyme';
 // test('replies is array', () => {
 //   expect(Array.isArray(dataGenFunctions.generateReplies())).toBe(true);
 // });
-
+test('fake test should be true', () => {
+  expect(2 + 2).toBe(4);
+});
 // test that comments render to the page
 // test('');
 
