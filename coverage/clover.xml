@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1541222512524" clover="3.2.0">
-  <project timestamp="1541222512525" name="All files">
+<coverage generated="1541224032387" clover="3.2.0">
+  <project timestamp="1541224032387" name="All files">
     <metrics statements="35" coveredstatements="34" conditionals="4" coveredconditionals="3" methods="11" coveredmethods="10" elements="50" coveredelements="47" complexity="0" loc="35" ncloc="35" packages="3" files="8" classes="8">
       <package name="comments-module">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -22,13 +22,13 @@
         <file name="Comment.jsx" path="/Users/coding/Desktop/FEC-Kickstand/comments-module/client/src/components/Comment.jsx">
           <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
           <line num="6" count="1" type="stmt"/>
-          <line num="7" count="6" type="stmt"/>
-          <line num="8" count="6" type="stmt"/>
-          <line num="9" count="6" type="stmt"/>
-          <line num="12" count="6" type="cond" truecount="2" falsecount="0"/>
-          <line num="13" count="1" type="stmt"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="16" count="6" type="stmt"/>
+          <line num="7" count="10" type="stmt"/>
+          <line num="8" count="10" type="stmt"/>
+          <line num="9" count="10" type="stmt"/>
+          <line num="12" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="14" count="3" type="stmt"/>
+          <line num="16" count="10" type="stmt"/>
         </file>
         <file name="List.jsx" path="/Users/coding/Desktop/FEC-Kickstand/comments-module/client/src/components/List.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>

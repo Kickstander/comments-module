@@ -12,10 +12,6 @@ import Reply from '../client/src/components/Reply';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-test('fakedata is array', () => {
-  expect(Array.isArray(sampleData)).toBe(true);
-});
-
 describe('List component', () => {
   test('does the list component render', () => {
     const wrapper = shallow(<List list={sampleData} />);
@@ -29,10 +25,13 @@ describe('List component', () => {
     const wrapper = shallow(<List list={[]} />);
     expect(wrapper.find(Comment).length).toBe(0);
   });
+  test('does the background div styles render', () => {
+    const wrapper = shallow(<List list={sampleData} />);
+    expect(wrapper.find('.backgroundDiv').exists()).toBe(true);
+  });
 });
 
 
-// test that comments show author name
 describe('Comment component', () => {
   test('does the comment component render', () => {
     const wrapper = shallow(<Comment comment={sampleData[0]} />);
@@ -41,6 +40,26 @@ describe('Comment component', () => {
   test('does the author name render', () => {
     const wrapper = shallow(<Comment comment={sampleData[0]} />);
     expect(wrapper.find('.authorName')).toBeDefined();
+  });
+  test('does the green bar render on creator comments', () => {
+    const wrapper = shallow(<Comment comment={sampleData[2]} />);
+    expect(wrapper.find('.greenbar').exists()).toBe(true);
+  });
+  test('does the green bar render on non-creator comments', () => {
+    const wrapper = shallow(<Comment comment={sampleData[1]} />);
+    expect(wrapper.find('.greenbar').exists()).toBe(false);
+  });
+  test('does the creator logo render on creator comments', () => {
+    const wrapper = shallow(<Comment comment={sampleData[2]} />);
+    expect(wrapper.find('.creatorLogo').exists()).toBe(true);
+  });
+  test('does the creator logo render on non-creator comments', () => {
+    const wrapper = shallow(<Comment comment={sampleData[1]} />);
+    expect(wrapper.find('.creatorLogo').exists()).toBe(false);
+  });
+  test('does the profile picture render', () => {
+    const wrapper = shallow(<Comment comment={sampleData[0]} />);
+    expect(wrapper.find('.profilePicture').exists()).toBe(true);
   });
 });
 
@@ -60,6 +79,30 @@ describe('Reply component', () => {
     const wrapper = shallow(<Reply reply={sampleData[0].replies[0]} />);
     expect(wrapper.exists()).toBe(true);
   });
+  test('does the author name render', () => {
+    const wrapper = shallow(<Reply reply={sampleData[0].replies[0]} />);
+    expect(wrapper.find('.authorName').exists()).toBe(true);
+  });
+  test('does the green bar render on creator comments', () => {
+    const wrapper = shallow(<Reply reply={sampleData[0].replies[0]} />);
+    expect(wrapper.find('.greenbar').exists()).toBe(true);
+  });
+  test('does the green bar render on non-creator comments', () => {
+    const wrapper = shallow(<Reply reply={sampleData[2].replies[0]} />);
+    expect(wrapper.find('.greenbar').exists()).toBe(false);
+  });
+  test('does the creator logo render on creator comments', () => {
+    const wrapper = shallow(<Reply reply={sampleData[0].replies[0]} />);
+    expect(wrapper.find('.creatorLogo').exists()).toBe(true);
+  });
+  test('does the creator logo render on non-creator comments', () => {
+    const wrapper = shallow(<Reply reply={sampleData[2].replies[0]} />);
+    expect(wrapper.find('.creatorLogo').exists()).toBe(false);
+  });
+  test('does the profile picture render', () => {
+    const wrapper = shallow(<Reply reply={sampleData[0].replies[0]} />);
+    expect(wrapper.find('.profilePicture').exists()).toBe(true);
+  });
 });
 
 describe('App component', () => {
@@ -75,23 +118,3 @@ describe('Post component', () => {
     expect(wrapper.exists()).toBe(true);
   });
 });
-
-
-// test that comments show creator logo if author is creator
-
-// test that green line shows up if author is creator
-// do this by using classNames
-
-// test that body text is displayed
-
-// test that profile picture is displayed
-
-// test that page renders
-
-// test that css renders
-
-// test that html renders
-
-// test that conditional rendering works correctly
-
-// tests should make sure the user sees the things they should and also that they don't see things they shouldn't
