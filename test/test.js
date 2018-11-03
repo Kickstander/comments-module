@@ -24,7 +24,7 @@ test('fake test should be true', () => {
 describe('List component', () => {
   test('correct number of comments render to page', () => {
     const wrapper = mount(<List list={sampleData} />);
-    expect(wrapper.find(Comment)).to.have.lengthOf(4);
+    expect(wrapper.find(Comment).length).toBe(4);
   });
 });
 
