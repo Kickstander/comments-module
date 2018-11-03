@@ -3,7 +3,7 @@ import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import sampleData from 'sampleData.js';
+import sampleData from './sampleData.js';
 
 Enzyme.configure({ adapter: new Adapter() });
 
