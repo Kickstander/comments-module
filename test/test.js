@@ -4,12 +4,12 @@ import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import sampleData from './sampledata.js';
-import List from '../src/components/List';
-import App from '../src/components/App';
-import Comment from '../src/components/Comment';
-import Post from '../src/components/Post';
-import Replies from '../src/components/Replies';
-import Reply from '../src/components/Reply';
+import List from '../client/src/components/List';
+import App from '../client/src/components/App';
+import Comment from '../client/src/components/Comment';
+import Post from '../client/src/components/Post';
+import Replies from '../client/src/components/Replies';
+import Reply from '../client/src/components/Reply';
 
 Enzyme.configure({ adapter: new Adapter() });
 
