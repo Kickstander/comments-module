@@ -1,5 +1,5 @@
 
-[ 
+const data = [
   { "replies" : [ { "author" : "Edwardo Weissnat", "authorIsCreator" : true, "profilePicture" : "https://i.postimg.cc/dV6RjdS4/Screen-Shot-2018-11-01-at-10-57-32-AM.png", "createdAt" : {$date:("2018-11-01T11:42:04.872Z")}, "body" : "Non autem accusamus. Doloremque praesentium impedit natus iure quam. Corporis tenetur hic corporis ut tempore. Quisquam voluptatem veritatis possimus architecto voluptatem quia." } ], 
     "id" : 16, "author" : "Tom Dooley", 
     "authorIsCreator" : false, 
@@ -24,4 +24,6 @@
     "profilePicture" : "https://i.postimg.cc/8CnhqGGv/Screen-Shot-2018-11-01-at-10-57-47-AM.png", 
     "createdAt" : {$date:("2018-11-01T17:03:26.770Z")}, 
     "body" : "Placeat molestiae omnis enim aut qui optio. Ullam natus ratione eveniet qui est vel voluptas aspernatur dolorem. Accusantium culpa voluptatem non et. Autem cumque quae. Unde unde ea quam aliquid ut.", "__v" : 0 }
-]
+];
+
+export default data;
