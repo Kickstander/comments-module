@@ -11,7 +11,8 @@
     "dev": "webpack --watch",
     "start": "nodemon server/server.js",
     "seedDB": "node fakedatagenerator.js",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --verbose --coverage"
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",

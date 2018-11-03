@@ -16,20 +16,66 @@ test('fakedata is array', () => {
   expect(Array.isArray(sampleData)).toBe(true);
 });
 
-test('fake test should be true', () => {
-  expect(2 + 2).toBe(4);
-});
-
-// test that comments render to the page
 describe('List component', () => {
+  test('does the list component render', () => {
+    const wrapper = shallow(<List list={sampleData} />);
+    expect(wrapper.exists()).toBe(true);
+  })
   test('correct number of comments render to page', () => {
     const wrapper = mount(<List list={sampleData} />);
     expect(wrapper.find(Comment).length).toBe(4);
+  });
+  test('does list component break when there are no comments', () => {
+    const wrapper = shallow(<List list={[]} />);
+    expect(wrapper.find(Comment).length).toBe(0);
   });
 });
 
 
 // test that comments show author name
+describe('Comment component', () => {
+  test('does the comment component render', () => {
+    const wrapper = shallow(<Comment comment={sampleData[0]} />);
+    expect(wrapper.exists()).toBe(true);
+  });
+  test('does the author name render', () => {
+    const wrapper = shallow(<Comment comment={sampleData[0]} />);
+    expect(wrapper.find('.authorName')).toBeDefined();
+  });
+});
+
+describe('Replies component', () => {
+  test('does the replies component render', () => {
+    const wrapper = shallow(<Replies replies={sampleData[0].replies} />);
+    expect(wrapper.exists()).toBe(true);
+  });
+  test('does replies component break when there are no replies', () => {
+    const wrapper = shallow(<Replies replies={[]} />);
+    expect(wrapper.find(Reply).length).toBe(0);
+  });
+});
+
+describe('Reply component', () => {
+  test('does the reply component render', () => {
+    const wrapper = shallow(<Reply reply={sampleData[0].replies[0]} />);
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe('App component', () => {
+  test('does the app component render', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe('Post component', () => {
+  test('does the post component render', () => {
+    const wrapper = shallow(<Post />);
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
 
 // test that comments show creator logo if author is creator
 
