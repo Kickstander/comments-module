@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.get('/comments', (req, res) => {
   databaseExports.Comment.find({}, (err, results) => {
     if (err) {
-      console.log(err);
+      res.status(400).send(err);
     }
     res.status(200).send(JSON.stringify(results));
   });
