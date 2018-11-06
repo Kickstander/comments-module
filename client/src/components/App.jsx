@@ -12,10 +12,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $.get(`http://localhost:3001/projects/:projectId/comments`, (data) => {
+    var projectId = 44;
+    $.get(`http://localhost:3001/projects/${projectId}/comments`, (data) => {
       console.log('data in get request: ', data);
       this.setState({
-        commentList: data,
+        commentList: JSON.parse(data),
       });
     });
   }
