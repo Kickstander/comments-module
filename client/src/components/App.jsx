@@ -14,9 +14,9 @@ class App extends React.Component {
   componentDidMount() {
     var projectId = 44;
     $.get(`http://localhost:3001/projects/${projectId}/comments`, (data) => {
-      console.log('data in get request: ', data);
+      console.log('data[0].comments in get request: ', JSON.parse(data)[0]);
       this.setState({
-        commentList: JSON.parse(data),
+        commentList: JSON.parse(data)[0].comments,
       });
     });
   }

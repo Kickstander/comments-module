@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 app.get('/projects/:projectId/comments', cors(), (req, res) => {
   Project.find({"projectId": req.params.projectId}, (err, results) => {
+    console.log('results from inside app.get: ', results);
     if (err) {
       // console.log('error occured inside app.get in server');
       res.status(400).send(err);
