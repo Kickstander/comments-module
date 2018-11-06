@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $.get('/comments', (data) => {
+    $.get('http://localhost:3001/comments', (data) => {
       this.setState({
         commentList: JSON.parse(data),
       });
