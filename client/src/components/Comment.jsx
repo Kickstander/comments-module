@@ -4,6 +4,7 @@ import styles from '../../dist/style.css';
 import Replies from './Replies';
 
 const Comment = (props) => {
+  console.log('props inside Comment: ', props);
   const { comment } = props;
   const profilePictureURL = comment.profilePicture;
   const timeAgo = moment(comment.createdAt).fromNow();
@@ -40,8 +41,5 @@ const Comment = (props) => {
     </div>
   );
 };
-
-// might need two types, one for creator and one for not.
-// Creator has blue stripe on left of container
 
 export default Comment;

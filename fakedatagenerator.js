@@ -1,9 +1,6 @@
 const faker = require('faker');
-
-const Comment = require('./database/index.js').Comment; // eslint-disable-line no-use-before-define
-
-
-const fakeCommentData = [];
+const Project = require('./database/index.js').Project; //eslint-disable-line no-use-before-define
+// const Comment = require('./database/index.js').Comment; // eslint-disable-line no-use-before-define
 
 function getRandomInt(min, max) {
   const minVal = Math.ceil(min);
@@ -64,19 +61,29 @@ function generateReplies() {
   return replies;
 }
 
-for (let i = 0; i < 100; i += 1) {
-  fakeCommentData.push({
-    id: i,
-    author: faker.name.findName(),
-    authorIsCreator: isCreator(1),
-    profilePicture: getRandomProfilePic(),
-    createdAt: faker.date.recent(),
-    body: randomBodyLength(),
-    replies: generateReplies(),
+let projects = [];
+for (let i = 1; i <= 100; i += 1) {
+  const fakeCommentData = [];
+  for (let j = 0; j < getRandomInt(1, 26); j += 1) {
+    fakeCommentData.push({
+      author: faker.name.findName(),
+      authorIsCreator: isCreator(1),
+      profilePicture: getRandomProfilePic(),
+      createdAt: faker.date.recent(),
+      body: randomBodyLength(),
+      replies: generateReplies(),
+    });
+  }
+  projects.push({
+    projectId: i,
+    comments: fakeCommentData,
   });
 }
 
-Comment.insertMany(fakeCommentData, (err) => {
+//console.log('projects array: ', projects);
+
+
+Project.insertMany(projects, (err, docs) => {
   if (err) {
     console.log('There was an error seeding your database');
   }
