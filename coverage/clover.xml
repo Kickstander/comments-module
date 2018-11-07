@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1541224032387" clover="3.2.0">
-  <project timestamp="1541224032387" name="All files">
-    <metrics statements="35" coveredstatements="34" conditionals="4" coveredconditionals="3" methods="11" coveredmethods="10" elements="50" coveredelements="47" complexity="0" loc="35" ncloc="35" packages="3" files="8" classes="8">
+<coverage generated="1541286592978" clover="3.2.0">
+  <project timestamp="1541286592978" name="All files">
+    <metrics statements="35" coveredstatements="34" conditionals="4" coveredconditionals="4" methods="11" coveredmethods="10" elements="50" coveredelements="48" complexity="0" loc="35" ncloc="35" packages="3" files="8" classes="8">
       <package name="comments-module">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="enzyme.config.js" path="/Users/coding/Desktop/FEC-Kickstand/comments-module/enzyme.config.js">
@@ -10,7 +10,7 @@
         </file>
       </package>
       <package name="comments-module.client.src.components">
-        <metrics statements="33" coveredstatements="32" conditionals="4" coveredconditionals="3" methods="11" coveredmethods="10"/>
+        <metrics statements="33" coveredstatements="32" conditionals="4" coveredconditionals="4" methods="11" coveredmethods="10"/>
         <file name="App.jsx" path="/Users/coding/Desktop/FEC-Kickstand/comments-module/client/src/components/App.jsx">
           <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
           <line num="8" count="1" type="stmt"/>
@@ -22,20 +22,20 @@
         <file name="Comment.jsx" path="/Users/coding/Desktop/FEC-Kickstand/comments-module/client/src/components/Comment.jsx">
           <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
           <line num="6" count="1" type="stmt"/>
-          <line num="7" count="10" type="stmt"/>
-          <line num="8" count="10" type="stmt"/>
-          <line num="9" count="10" type="stmt"/>
-          <line num="12" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="7" count="11" type="stmt"/>
+          <line num="8" count="11" type="stmt"/>
+          <line num="9" count="11" type="stmt"/>
+          <line num="12" count="11" type="cond" truecount="2" falsecount="0"/>
           <line num="13" count="3" type="stmt"/>
           <line num="14" count="3" type="stmt"/>
-          <line num="16" count="10" type="stmt"/>
+          <line num="16" count="11" type="stmt"/>
         </file>
         <file name="List.jsx" path="/Users/coding/Desktop/FEC-Kickstand/comments-module/client/src/components/List.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="5" count="1" type="stmt"/>
-          <line num="6" count="3" type="stmt"/>
-          <line num="7" count="3" type="stmt"/>
-          <line num="9" count="8" type="stmt"/>
+          <line num="6" count="4" type="stmt"/>
+          <line num="7" count="4" type="stmt"/>
+          <line num="9" count="12" type="stmt"/>
         </file>
         <file name="Post.jsx" path="/Users/coding/Desktop/FEC-Kickstand/comments-module/client/src/components/Post.jsx">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -51,16 +51,16 @@
           <line num="8" count="5" type="stmt"/>
         </file>
         <file name="Reply.jsx" path="/Users/coding/Desktop/FEC-Kickstand/comments-module/client/src/components/Reply.jsx">
-          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
           <line num="5" count="1" type="stmt"/>
-          <line num="6" count="5" type="stmt"/>
-          <line num="7" count="5" type="stmt"/>
-          <line num="8" count="5" type="stmt"/>
-          <line num="11" count="5" type="stmt"/>
-          <line num="12" count="5" type="cond" truecount="1" falsecount="1"/>
-          <line num="13" count="5" type="stmt"/>
-          <line num="14" count="5" type="stmt"/>
-          <line num="16" count="5" type="stmt"/>
+          <line num="6" count="11" type="stmt"/>
+          <line num="7" count="11" type="stmt"/>
+          <line num="8" count="11" type="stmt"/>
+          <line num="11" count="11" type="stmt"/>
+          <line num="12" count="11" type="cond" truecount="2" falsecount="0"/>
+          <line num="13" count="8" type="stmt"/>
+          <line num="14" count="8" type="stmt"/>
+          <line num="16" count="11" type="stmt"/>
         </file>
       </package>
       <package name="comments-module.test">

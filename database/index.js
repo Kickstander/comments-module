@@ -1,27 +1,12 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/comments');
+mongoose.connect('mongodb://localhost/projects');
 
-const commentSchema = new mongoose.Schema({
-  id: Number,
-  author: String,
-  authorIsCreator: Boolean,
-  profilePicture: String,
-  createdAt: Date,
-  body: String,
-  replies: Array,
+const projectSchema = new mongoose.Schema({
+  projectId: Number,
+  comments: Array,
 });
 
-const Comment = mongoose.model('Comment', commentSchema);
+const Project = mongoose.model('Project', projectSchema);
 
-let allComments = [];
-
-Comment.find({}, (err, results) => {
-  if (err) {
-    console.log(err);
-  }
-  allComments = results;
-});
-
-module.exports.Comment = Comment;
-module.exports.allComments = allComments;
+module.exports.Project = Project;

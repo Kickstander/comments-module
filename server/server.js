@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const databaseExports = require('../database/index.js');
+const Project = require('../database/index.js').Project;
 
 const app = express();
 
@@ -13,9 +13,11 @@ app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/comments', (req, res) => {
-  databaseExports.Comment.find({}, (err, results) => {
+app.get('/projects/:projectId/comments', cors(), (req, res) => {
+  Project.find({"projectId": req.params.projectId}, (err, results) => {
+    console.log('results from inside app.get: ', results);
     if (err) {
+      // console.log('error occured inside app.get in server');
       res.status(400).send(err);
     }
     res.status(200).send(JSON.stringify(results));
