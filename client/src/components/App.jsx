@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import List from './List';
 import Post from './Post';
+import styles from '../../dist/style.css';
 
 class App extends React.Component {
   constructor() {
@@ -22,9 +23,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="everything">
-        <Post />
-        <List list={this.state.commentList} />
+      <div className={styles.everything}>
+        <div>
+          <Post />
+          <List list={this.state.commentList} />
+        </div>
       </div>
     );
   }
