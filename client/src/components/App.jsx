@@ -22,7 +22,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="everything">
         <Post />
         <List list={this.state.commentList} />
       </div>
