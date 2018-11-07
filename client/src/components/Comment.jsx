@@ -4,7 +4,6 @@ import styles from '../../dist/style.css';
 import Replies from './Replies';
 
 const Comment = (props) => {
-  console.log('props inside Comment: ', props);
   const { comment } = props;
   const profilePictureURL = comment.profilePicture;
   const timeAgo = moment(comment.createdAt).fromNow();
