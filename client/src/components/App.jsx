@@ -13,8 +13,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var projectId = 44;
-    $.get(`http://localhost:3001/projects/${projectId}/comments`, (data) => {
+    const splitURL = window.location.href.split('/');
+    const projectId = typeof splitURL[splitURL.length - 1] === 'number' ? splitURL[splitURL.length - 1] : 44;
+    $.get(`http://commentsmodule-env.28xqpexbcv.us-east-2.elasticbeanstalk.com/projects/${projectId}/comments`, (data) => {
       this.setState({
         commentList: JSON.parse(data)[0].comments,
       });

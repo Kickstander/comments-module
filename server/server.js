@@ -6,18 +6,24 @@ const Project = require('../database/index.js').Project;
 
 const app = express();
 
-const port = 3001;
+const port = 8081;
 
 app.use(cors());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get('/:projectId', cors(), (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/dist/index.html'), (err) => {
+    if (err) {
+      console.log(err);
+    }
+  })
+})
+
 app.get('/projects/:projectId/comments', cors(), (req, res) => {
   Project.find({"projectId": req.params.projectId}, (err, results) => {
-    console.log('results from inside app.get: ', results);
     if (err) {
-      // console.log('error occured inside app.get in server');
       res.status(400).send(err);
     }
     res.status(200).send(JSON.stringify(results));
