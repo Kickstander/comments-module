@@ -12,8 +12,8 @@ Thank you for reading my README file and I hope you like my module :
 
 | action    | method | endpoint                      |
 |-----------|--------|-------------------------------|
-| create    | post   | /projects/:projectId          |
-| read(all) | get    | /projects/:projectId          |
+| create    | post   | /projects/:projectId/comments |
+| read(all) | get    | /projects/:projectId/comments |
 | read(one) | get    | /projects/:projectId/comments |
 | update    | put    | /projects/:projectId/comments |
 | delete    | delete | /projects/:projectId/comments |

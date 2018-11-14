@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // create
-app.post('/projects/:projectId', (req, res) => {
+app.post('/projects/:projectId/comments', (req, res) => {
   var instance = new Project(req.body);
   // console.log(req.body);
   // res.send('POST request to the homepage', JSON.parse(req.body));
@@ -30,7 +30,7 @@ app.post('/projects/:projectId', (req, res) => {
 })
 
 // read all
-app.get('/projects/:projectId', (req, res) => {
+app.get('/projects/:projectId/comments', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'), (err) => {
     if (err) {
       console.log(err);
@@ -50,7 +50,7 @@ app.get('/projects/:projectId/comments', (req, res) => {
 
 // update 
 app.put('/projects/:projectId/comments', (req, res) => {
-  Project.updateOne({"projectId": req.params.projectId}, (err, results) => {
+  Project.updateOne(req.params, req.body, (err, results) => {
     if (err) {
       res.status(400).send(err);
     }
@@ -60,7 +60,7 @@ app.put('/projects/:projectId/comments', (req, res) => {
 
 // delete
 app.delete('/projects/:projectId/comments', (req, res) => {
-  Project.deleteOne({"projectId": req.params.projectId}, (err, results) => {
+  Project.deleteOne(req.params, (err, results) => {
     if (err) {
       res.status(400).send(err);
     }
