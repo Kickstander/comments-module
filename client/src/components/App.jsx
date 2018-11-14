@@ -12,6 +12,7 @@ class App extends React.Component {
     };
   }
 
+  // either project id === 44 by default or whatever you passed in from the the address bar
   componentDidMount() {
     const splitURL = window.location.href.split('/');
     const projectId = typeof splitURL[splitURL.length - 1] === 'number' ? splitURL[splitURL.length - 1] : 44;
@@ -20,7 +21,7 @@ class App extends React.Component {
         commentList: JSON.parse(data)[0].comments,
       });
     });
-  }
+  } // get a url, respond with comments array (for that particular project);
 
   render() {
     return (

@@ -8,4 +8,12 @@ The page will show up on 'localhost:3001' in the browser.
 This is a single module in a 4 module application. The project's repo can be found at: https://github.com/FEC-Kickstand
 My repository for this single comments module can be found at: https://github.com/FEC-Kickstand/comments-module
 
-Thank you for reading my README file and I hope you like my module :D
+Thank you for reading my README file and I hope you like my module :
+
+| action    | method | endpoint                      |
+|-----------|--------|-------------------------------|
+| create    | post   | /projects/:projectId          |
+| read(all) | get    | /projects/:projectId          |
+| read(one) | get    | /projects/:projectId/comments |
+| update    | put    | /projects/:projectId/comments |
+| delete    | delete | /projects/:projectId/comments |
