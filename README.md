@@ -1,15 +1,21 @@
-Hello and welcome to my comments module!
+Kickstander
+Project description: To rebuild another team's front-end website recreation and implement robust backend that is scalable.
 
-To run this file, please run 'npm install' first to install the dependencies.
-The database must be seeded. This can be done by running the script 'npm run seedDB'.
-Then, run 'npm run dev' to start webpack, and 'npm run start' to start the server.
-The page will show up on 'localhost:3001' in the browser.
+Requirements
+STEP 1: Dependencies
+npm install
+npm run start
+npm run dev
 
-This is a single module in a 4 module application. The project's repo can be found at: https://github.com/FEC-Kickstand
-My repository for this single comments module can be found at: https://github.com/FEC-Kickstand/comments-module
+STEP 2: Database
+mongod
+mondgo
+npm run seedDB
 
-Thank you for reading my README file and I hope you like my module :
+STEP 3: Browser
+'localhost:8081'
 
+API Endpoints
 | action    | method | endpoint                      |
 |-----------|--------|-------------------------------|
 | create    | post   | /projects/:projectId/comments |
@@ -18,3 +24,15 @@ Thank you for reading my README file and I hope you like my module :
 | update    | put    | /projects/:projectId/comments |
 | delete    | delete | /projects/:projectId/comments |
 
+Related Projects
+https://github.com/Kickstander/rewards-module-svc
+https://github.com/Kickstander/updates-service
+https://github.com/Kickstander/funding-widget-svc
+
+Contributors
+Sarah Pickrahn
+https://github.com/pickles27
+Original module
+https://github.com/FEC-Kickstand/comments-module
+Original team's repository
+https://github.com/FEC-Kickstand
