@@ -16,13 +16,13 @@ STEP 3: Browser
 'localhost:8081'
 
 API Endpoints
-| action    | method | endpoint                               |
-|-----------|--------|----------------------------------------|
-| read(all) | get    | /projects/:projectId/comments          |
-| read(one) | get    | /projects/:projectId/comments          |
-| create    | post   | /projects/:projectId/comments/:comment |
-| update    | put    | /projects/:projectId/comments/:comment |
-| delete    | delete | /projects/:projectId/comments/:comment |
+| action    | method | endpoint                                 |
+|-----------|--------|------------------------------------------|
+| read(all) | get    | /projects/:projectId                     |
+| read(one) | get    | /projects/:projectId/comments            |
+| create    | post   | /projects/:projectId/comments            |
+| update    | put    | /projects/:projectId/comments/:commentId |
+| delete    | delete | /projects/:projectId/comments/:commentId |
 
 Related Projects
 https://github.com/Kickstander/rewards-module-svc
