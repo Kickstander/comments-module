@@ -65,7 +65,7 @@ let projects = [];  // per 100 kickerstarter projects, there are a between 1-26 
 for (let i = 1; i <= 100; i += 1) {
   const fakeCommentData = [];
   for (let j = 0; j < getRandomInt(1, 26); j += 1) {
-    fakeCommentData.push({``
+    fakeCommentData.push({
       author: faker.name.findName(),
       authorIsCreator: isCreator(1),
       profilePicture: getRandomProfilePic(),
