@@ -14,8 +14,7 @@ app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// read all
-app.get('/projects/:projectId/comments', (req, res) => {
+app.get('/projects/:projectId', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'), (err) => {
     if (err) {
       console.log(err);
@@ -23,55 +22,49 @@ app.get('/projects/:projectId/comments', (req, res) => {
   })
 })
 
-// read one
 app.get('/projects/:projectId/comments', (req, res) => {
-  Project.find({"projectId": req.params.projectId}, (err, results) => {
+  Comment.find({"projectId": req.params.projectId}, (err, results) => {
     if (err) {
-      res.status(400).send(err);
+      res.send(err);
     }
-    res.status(200).send(JSON.stringify(results));
+    res.send(results);
   });
 });
 
 // create
-app.post('/projects/:projectId/comments/:comment', (req, res) => {
-  Comment.create({
-    projectId: req.body.projectId,
-    comments: req.body.comments,
-  }, (err, docs) => {
+app.post('/projects/:projectId/comments', (req, res) => {
+  Comment.create(req.body, (err, docs) => {
     if (err) {
-      console.log(err);
-      res.sendStatus(500);
+      res.send(err);
     } else {
-      console.log('Inserted a single entry successfully');
-      res.sendStatus(201);
+      res.send('posted');
     }
   });
 })
 
 // update 
-app.put('/projects/:projectId/comments/:comment', (req, res) => {
-  Project.findByIdAndUpdate({
+app.put('/projects/:projectId/comments/:commentId', (req, res) => {
+  Comment.findOneAndUpdate({
     projectId: req.params.projectId, 
-    comments: req.params.comments
+    commentId: req.params.commentId
   }, req.body, (err, results) => {
     if (err) {
-      res.status(400).send(err);
+      res.send(err);
     }
-    res.status(200).send(JSON.stringify(results));
+    res.send('updated');
   });
 });
 
 // delete single comment
-app.delete('/projects/:projectId/comments/:comment', (req, res) => {
-  Project.findByIdAndDelete({
-    projectId: req.params.projectId
-  }, { comments: req.params.comments
+app.delete('/projects/:projectId/comments/:commentId', (req, res) => {
+  Comment.findOneAndDelete({
+    projectId: req.params.projectId,
+    commentId: req.params.commentId, 
   }, (err, results) => {
     if (err) {
-      res.status(400).send(err);
+      res.send(err);
     }
-    res.status(200).send(JSON.stringify(results));
+    res.send('deleted');
   });
 });
 

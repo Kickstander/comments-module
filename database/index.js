@@ -15,17 +15,17 @@ const projectSchema = new mongoose.Schema({
   comments: Array,
 });
 
-const Project = mongoose.model('Project', projectSchema); // Project blueprint
-
 const commentSchema = new mongoose.Schema({
+  commentId: Number,
   author: String,
   authorIsCreator: Boolean,
   profilePicture: String,
-  createdAt: String,
+  createdAt: Date,
   body: String,
   replies: Array,
-})
+});
 
+const Project = mongoose.model('Project', projectSchema); 
 const Comment = mongoose.model('Comment', commentSchema);
 
 module.exports = { Project, Comment } ;
