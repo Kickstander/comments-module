@@ -3,6 +3,7 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const Project = require('../database/index.js').Project;
+const Comment = require('../database/index.js').Comment;
 
 const app = express();
 
@@ -12,22 +13,6 @@ app.use(cors());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// create
-app.post('/projects/:projectId/comments', (req, res) => {
-  var instance = new Project(req.body);
-  // console.log(req.body);
-  // res.send('POST request to the homepage', JSON.parse(req.body));
-  instance.save((err, docs) => {
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-    } else {
-      console.log('Inserted a single entry successfully');
-      res.sendStatus(201);
-    }
-  });
-})
 
 // read all
 app.get('/projects/:projectId/comments', (req, res) => {
@@ -48,9 +33,28 @@ app.get('/projects/:projectId/comments', (req, res) => {
   });
 });
 
+// create
+app.post('/projects/:projectId/comments/:comment', (req, res) => {
+  Comment.create({
+    projectId: req.body.projectId,
+    comments: req.body.comments,
+  }, (err, docs) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      console.log('Inserted a single entry successfully');
+      res.sendStatus(201);
+    }
+  });
+})
+
 // update 
-app.put('/projects/:projectId/comments', (req, res) => {
-  Project.updateOne(req.params, req.body, (err, results) => {
+app.put('/projects/:projectId/comments/:comment', (req, res) => {
+  Project.findByIdAndUpdate({
+    projectId: req.params.projectId, 
+    comments: req.params.comments
+  }, req.body, (err, results) => {
     if (err) {
       res.status(400).send(err);
     }
@@ -58,9 +62,12 @@ app.put('/projects/:projectId/comments', (req, res) => {
   });
 });
 
-// delete
-app.delete('/projects/:projectId/comments', (req, res) => {
-  Project.deleteOne(req.params, (err, results) => {
+// delete single comment
+app.delete('/projects/:projectId/comments/:comment', (req, res) => {
+  Project.findByIdAndDelete({
+    projectId: req.params.projectId
+  }, { comments: req.params.comments
+  }, (err, results) => {
     if (err) {
       res.status(400).send(err);
     }
