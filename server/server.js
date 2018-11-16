@@ -23,7 +23,7 @@ app.get('/projects/:projectId', (req, res) => {
 })
 
 app.get('/projects/:projectId/comments', (req, res) => {
-  Comment.find({"projectId": req.params.projectId}, (err, results) => {
+  Comment.find(req.params, (err, results) => {
     if (err) {
       res.send(err);
     }
@@ -44,10 +44,7 @@ app.post('/projects/:projectId/comments', (req, res) => {
 
 // update 
 app.put('/projects/:projectId/comments/:commentId', (req, res) => {
-  Comment.findOneAndUpdate({
-    projectId: req.params.projectId, 
-    commentId: req.params.commentId
-  }, req.body, (err, results) => {
+  Comment.findOneAndUpdate(req.params, req.body, (err, results) => {
     if (err) {
       res.send(err);
     }
@@ -57,10 +54,7 @@ app.put('/projects/:projectId/comments/:commentId', (req, res) => {
 
 // delete single comment
 app.delete('/projects/:projectId/comments/:commentId', (req, res) => {
-  Comment.findOneAndDelete({
-    projectId: req.params.projectId,
-    commentId: req.params.commentId, 
-  }, (err, results) => {
+  Comment.findOneAndDelete(req.params, (err, results) => {
     if (err) {
       res.send(err);
     }
