@@ -9,7 +9,7 @@ npm run dev
 
 STEP 2: Database
 mongod
-mondgo
+mongo
 npm run seedDB
 
 STEP 3: Browser
