@@ -3,6 +3,7 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const Project = require('../database/index.js').Project;
+const Comment = require('../database/index.js').Comment;
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/:projectId', cors(), (req, res) => {
+app.get('/projects/:projectId', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'), (err) => {
     if (err) {
       console.log(err);
@@ -21,15 +22,49 @@ app.get('/:projectId', cors(), (req, res) => {
   })
 })
 
-app.get('/projects/:projectId/comments', cors(), (req, res) => {
-  Project.find({"projectId": req.params.projectId}, (err, results) => {
+app.get('/projects/:projectId/comments', (req, res) => {
+  Comment.find(req.params, (err, results) => {
     if (err) {
-      res.status(400).send(err);
+      res.send(err);
     }
-    res.status(200).send(JSON.stringify(results));
+    res.send(results);
   });
 });
 
-app.listen(port, () => {
-  console.log('listening..............o.o');
+// create
+app.post('/projects/:projectId/comments', (req, res) => {
+  Comment.create(req.body, (err, docs) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send('posted');
+    }
+  });
+})
+
+// update 
+app.put('/projects/:projectId/comments/:commentId', (req, res) => {
+  Comment.findOneAndUpdate(req.params, req.body, (err, results) => {
+    if (err) {
+      res.send(err);
+    }
+    res.send('updated');
+  });
 });
+
+// delete single comment
+app.delete('/projects/:projectId/comments/:commentId', (req, res) => {
+  Comment.findOneAndDelete(req.params, (err, results) => {
+    if (err) {
+      res.send(err);
+    }
+    res.send('deleted');
+  });
+});
+
+
+app.listen(port, () => {
+  console.log('listening on port :', port);
+});
+
+// cvs for table format

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const username = process.env.MONGODB_USERNAME;
 const password = process.env.MONGODB_PASSWORD;
-mongoose.connect(`mongodb://${username}:${password}@ds157923.mlab.com:57923/commentsmodule`, {}, (err) => {
+
+mongoose.connect(`mongodb://localhost`, {}, (err) => {
   if (err) {
     console.log('OMG! Failed to connect to database! :(');
   } else {
@@ -14,6 +15,17 @@ const projectSchema = new mongoose.Schema({
   comments: Array,
 });
 
-const Project = mongoose.model('Project', projectSchema);
+const commentSchema = new mongoose.Schema({
+  commentId: Number,
+  author: String,
+  authorIsCreator: Boolean,
+  profilePicture: String,
+  createdAt: Date,
+  body: String,
+  replies: Array,
+});
 
-module.exports.Project = Project;
+const Project = mongoose.model('Project', projectSchema); 
+const Comment = mongoose.model('Comment', commentSchema);
+
+module.exports = { Project, Comment } ;
