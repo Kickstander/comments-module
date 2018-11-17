@@ -1,3 +1,5 @@
+// drop table if exist
+
 CREATE TABLE comments (
   id int NOT NULL,
   projectId int,
@@ -8,3 +10,4 @@ CREATE TABLE comments (
   body text,
 )
 
+copy table 
