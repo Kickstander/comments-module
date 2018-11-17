@@ -10,13 +10,13 @@ mongoose.connect(`mongodb://localhost`, {}, (err) => {
   }
 });
 
-const projectSchema = new mongoose.Schema({
-  projectId: Number,
-  comments: Array,
-});
+// const projectSchema = new mongoose.Schema({
+//   projectId: Number,
+//   comments: Array,
+// });
 
 const commentSchema = new mongoose.Schema({
-  commentId: Number,
+  projectId: Number,
   author: String,
   authorIsCreator: Boolean,
   profilePicture: String,
@@ -25,7 +25,8 @@ const commentSchema = new mongoose.Schema({
   replies: Array,
 });
 
-const Project = mongoose.model('Project', projectSchema); 
+// const Project = mongoose.model('Project', projectSchema); 
 const Comment = mongoose.model('Comment', commentSchema);
 
-module.exports = { Project, Comment } ;
+// module.exports = { Project, Comment } ;
+module.exports = Comment;
