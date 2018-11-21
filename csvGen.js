@@ -43,7 +43,7 @@ function randomBodyLength() {   // random body length, top half will will double
   return faker.lorem.paragraphs(1).replace('\n', ' ');
 }
 
-const stream = fs.createWriteStream('./comments.csv', {flags: 'a'});
+const stream = fs.createWriteStream('./smallComments.csv', {flags: 'a'});
 
 stream.write('projectId,author,authorIsCreator,profilePicture,createdAt,body,replies\n');
 
@@ -83,16 +83,3 @@ stream.on('drain', () => {
 });
 generate();
 
-
-// fs.writeFile('newCommentData.json', JSON.stringify(projects), function (err) { // write file with node (JSONed first before writing in node)
-//   if (err) 
-//       return console.log(err);
-//   console.log('file write success');
-// });
-
-// console.log('comments array', JSON.stringify(commentData), commentData.length);
-
-// if (i % 10000 === 0) {
-//   console.clear();
-//   console.log(i, " entries logged");
-// }

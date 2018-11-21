@@ -10,11 +10,6 @@ mongoose.connect(`mongodb://localhost`, {}, (err) => {
   }
 });
 
-// const projectSchema = new mongoose.Schema({
-//   projectId: Number,
-//   comments: Array,
-// });
-
 const commentSchema = new mongoose.Schema({
   projectId: Number,
   author: String,
