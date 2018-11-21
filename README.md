@@ -3,9 +3,9 @@ Project description: To rebuild another team's front-end website recreation and 
 
 ## Requirements
 ### STEP 1: Dependencies
-npm install
-npm run start
-npm run dev
+npm install \n
+npm run start \n
+npm run dev \n
 
 ### STEP 2: Database
 mongod
