@@ -25,14 +25,14 @@ npm run seedDB
 | delete    | delete | /projects/:projectId/comments/:commentId |
 
 ## Related Projects
-https://github.com/Kickstander/rewards-module-svc\
-https://github.com/Kickstander/updates-service\
+https://github.com/Kickstander/rewards-module-svc . 
+https://github.com/Kickstander/updates-service . 
 https://github.com/Kickstander/funding-widget-svc
 
 ## Contributors
 Sarah Pickrahn\
-https://github.com/pickles27\
+https://github.com/pickles27 . 
 Original module\
-https://github.com/FEC-Kickstand/comments-module\
+https://github.com/FEC-Kickstand/comments-module . 
 Original team's repository\
 https://github.com/FEC-Kickstand
