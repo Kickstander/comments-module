@@ -5,11 +5,11 @@ Project description: To rebuild another team's front-end website recreation and 
 ### STEP 1: Dependencies
 npm install\
 npm run start\
-npm run dev\
+npm run dev
 
 ### STEP 2: Database
-mongod
-mongo
+mongod\
+mongo\
 npm run seedDB
 
 ### STEP 3: Browser
