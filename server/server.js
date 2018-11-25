@@ -1,9 +1,9 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const Project = require('../database/index.js').Project;
-const Comment = require('../database/index.js').Comment;
+const Comment = require('../database/index.js');
 
 const app = express();
 
@@ -11,19 +11,21 @@ const port = 8081;
 
 app.use(cors());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
+app.use('/projects/:projectId', express.static(path.resolve(__dirname, '../client/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/projects/:projectId', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/dist/index.html'), (err) => {
-    if (err) {
-      console.log(err);
-    }
-  })
-})
+// app.get('/projects/:projectId', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'), (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//   })
+// })
 
 app.get('/projects/:projectId/comments', (req, res) => {
   Comment.find(req.params, (err, results) => {
+    // console.log(req.params)
     if (err) {
       res.send(err);
     }
@@ -66,5 +68,3 @@ app.delete('/projects/:projectId/comments/:commentId', (req, res) => {
 app.listen(port, () => {
   console.log('listening on port :', port);
 });
-
-// cvs for table format

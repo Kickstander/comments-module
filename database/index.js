@@ -1,27 +1,28 @@
+require('newrelic');
 const mongoose = require('mongoose');
 const username = process.env.MONGODB_USERNAME;
 const password = process.env.MONGODB_PASSWORD;
 
-mongoose.connect(`mongodb://localhost`, {}, (err) => {
+mongoose.connect(`mongodb://localhost/sdc`, { useNewUrlParser: true }, (err) => {
   if (err) {
-    console.log('OMG! Failed to connect to database! :(');
+    console.log('Failed to connect to Mongo database');
   } else {
-    console.log('YAY! connected to database! :D');
+    console.log('Successfully connected to Mongo database');
   }
 });
 
-const commentSchema = new mongoose.Schema({
+const db = mongoose.connection;
+
+const commentSchema = mongoose.Schema({
   projectId: Number,
   author: String,
   authorIsCreator: Boolean,
   profilePicture: String,
-  createdAt: Date,
+  createdAt: String,
   body: String,
   replies: Array,
 });
 
-// const Project = mongoose.model('Project', projectSchema); 
-const Comment = mongoose.model('Comment', commentSchema);
+const Comment = db.model('Comment', commentSchema);
 
-// module.exports = { Project, Comment } ;
 module.exports = Comment;
