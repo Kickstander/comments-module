@@ -15,26 +15,18 @@ app.use('/projects/:projectId', express.static(path.resolve(__dirname, '../clien
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.get('/projects/:projectId', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'), (err) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//   })
-// })
-
-app.get('/projects/:projectId/comments', (req, res) => {
+app.get('/api/projects/:projectId/comments', (req, res) => {
   Comment.find(req.params, (err, results) => {
     // console.log(req.params)
     if (err) {
       res.send(err);
     }
-    res.send(results);
+    res.set('Content-Type', 'application/json').send(JSON.stringify(results));
   });
 });
 
 // create
-app.post('/projects/:projectId/comments', (req, res) => {
+app.post('/api/projects/:projectId/comments', (req, res) => {
   Comment.create(req.body, (err, docs) => {
     if (err) {
       res.send(err);
@@ -45,7 +37,7 @@ app.post('/projects/:projectId/comments', (req, res) => {
 })
 
 // update 
-app.put('/projects/:projectId/comments/:commentId', (req, res) => {
+app.put('/api/projects/:projectId/comments/:commentId', (req, res) => {
   Comment.findOneAndUpdate(req.params, req.body, (err, results) => {
     if (err) {
       res.send(err);
@@ -55,7 +47,7 @@ app.put('/projects/:projectId/comments/:commentId', (req, res) => {
 });
 
 // delete single comment
-app.delete('/projects/:projectId/comments/:commentId', (req, res) => {
+app.delete('/api/projects/:projectId/comments/:commentId', (req, res) => {
   Comment.findOneAndDelete(req.params, (err, results) => {
     if (err) {
       res.send(err);
