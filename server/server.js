@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 
 app.get('/api/projects/:projectId/comments', (req, res) => {
   Comment.find(req.params, (err, results) => {
-    // console.log(req.params)
     if (err) {
       res.send(err);
     }
