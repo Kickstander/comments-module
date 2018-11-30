@@ -15,10 +15,10 @@ class App extends React.Component {
   // either project id === 44 by default or whatever you passed in from the the address bar
   componentDidMount() {
     const splitURL = window.location.href.split('/');
-    const projectId = typeof splitURL[splitURL.length - 1] === 'number' ? splitURL[splitURL.length - 1] : 44;
-    $.get(`http://54.219.134.204:8081/projects/${projectId}/comments`, (data) => {
+    const projectId = typeof splitURL[4] === 'number' ? splitURL[4] : 44;
+    $.get(`http://54.219.134.204:8081/projects/${projectId}`, (data) => {
       this.setState({
-        commentList: JSON.parse(data)[0].comments,
+        commentList: data
       });
     });
   } // get a url, respond with comments array (for that particular project);
