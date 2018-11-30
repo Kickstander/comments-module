@@ -16,7 +16,7 @@ class App extends React.Component {
   componentDidMount() {
     const splitURL = window.location.href.split('/');
     const projectId = typeof splitURL[splitURL.length - 1] === 'number' ? splitURL[splitURL.length - 1] : 44;
-    $.get(`http://localhost:8081/projects/${projectId}/comments`, (data) => {
+    $.get(`http://54.219.134.204:8081/projects/${projectId}/comments`, (data) => {
       this.setState({
         commentList: JSON.parse(data)[0].comments,
       });

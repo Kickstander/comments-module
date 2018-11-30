@@ -1,9 +1,8 @@
-require('newrelic');
 const mongoose = require('mongoose');
 const username = process.env.MONGODB_USERNAME;
 const password = process.env.MONGODB_PASSWORD;
 
-mongoose.connect(`mongodb://localhost/sdc`, { useNewUrlParser: true }, (err) => {
+mongoose.connect(`mongodb://13.57.239.222/sdc`, { useNewUrlParser: true }, (err) => {
   if (err) {
     console.log('Failed to connect to Mongo database');
   } else {
